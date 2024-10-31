@@ -1,0 +1,45 @@
+{
+	"name": "hydrogenpay-svelte",
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"svelte": "src/index.js",
+	"type": "module",
+	"description": "Hydrogenpay Svelte SDK",
+	"files": [
+		"dist"
+	],
+	"homepage": "https://github.com/HydrogenAfrica/hydrogenpay-svelte",
+	"bugs": {
+		"url": "https://github.com/HydrogenAfrica/hydrogenpay-svelte/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/HydrogenAfrica/hydrogenpay-svelte.git"
+	},
+	"scripts": {
+		"build": "rollup -c",
+		"dev": "rollup -c -w",
+		"start": "sirv public"
+	},
+	"devDependencies": {
+		"@rollup/plugin-commonjs": "^11.0.0",
+		"@rollup/plugin-node-resolve": "^7.0.0",
+		"rollup": "^1.20.0",
+		"rollup-plugin-livereload": "^1.0.0",
+		"rollup-plugin-svelte": "^5.0.3",
+		"rollup-plugin-terser": "^5.1.2",
+		"svelte": "^3.0.0"
+	},
+	"dependencies": {
+		"sirv-cli": "^0.4.4"
+	},
+	"license": "MIT",
+	"keywords": [
+		"Hydrogen pay",
+		"svelte",
+		"Payment",
+		"Gateway",
+		"Payment Gateway"
+	]
+}
