@@ -29,7 +29,7 @@
 				frequency,
 				isAPI: false,
 				...(isRecurring && endDate ? { endDate } : {}),
-				transactionRef,
+				...(transactionRef ? { transactionRef } : {}),
 				metaData
 			},
 			apiKey,
