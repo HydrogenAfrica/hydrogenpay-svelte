@@ -30,7 +30,7 @@
 				isAPI: false,
 				...(isRecurring && endDate ? { endDate } : {}),
 				...(transactionRef ? { transactionRef } : {}),
-				metaData
+				...(metaData ? { metaData } : {})
 			},
 			apiKey,
 			(e) => {
