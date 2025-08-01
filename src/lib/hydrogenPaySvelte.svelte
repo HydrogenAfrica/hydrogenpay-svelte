@@ -13,6 +13,8 @@
 	export let buttonText;
 	export let buttonStyle;
 	export let endDate;
+	export let transactionRef;
+	export let metaData;
 
 	async function hydrogenPay() {
 		let checkStatus;
@@ -27,6 +29,8 @@
 				frequency,
 				isAPI: false,
 				...(isRecurring && endDate ? { endDate } : {}),
+				...(transactionRef ? { transactionRef } : {}),
+				...(metaData ? { metaData } : {})
 			},
 			apiKey,
 			(e) => {
@@ -37,25 +41,25 @@
 
 
 		//get payment reference
-		const transactionRef = await getRef;
+		const getTransactionRef = await getRef;
 
-		if (transactionRef && transactionRef !== 'Error in initiating payment') {
+		if (getTransactionRef && getTransactionRef !== 'Error in initiating payment') {
 			checkStatus = setInterval(async function () {
 				const checkPaymentStatus = await window.handlePaymentStatus(
-					transactionRef,
+					getTransactionRef,
 					apiKey
 				);
 
 				if (checkPaymentStatus.status === 'Paid') {
 					onSuccess &&
 						onSuccess(checkPaymentStatus, () =>
-							window.closeModal({ transactionRef })
+							window.closeModal({ getTransactionRef })
 						);
 					clearInterval(checkStatus);
 				}
 			}, 2000);
 		} else {
-			console.error(`ERROR: ${transactionRef}`);
+			console.error(`ERROR: ${getTransactionRef}`);
 		}
 	}
 </script>
@@ -63,7 +67,7 @@
 <svelte:head>
 	<title>HydrogenPay</title>
 	<script
-		src="https://hydrogenshared.blob.core.windows.net/paymentgateway/paymentGatewayIntegration_v1PROD.js"
+		src="https://js.hydrogenpay.com/inline.js"
 	></script>
 </svelte:head>
 

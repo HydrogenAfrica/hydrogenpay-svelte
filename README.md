@@ -1,5 +1,5 @@
 <p align="center">
-<img width="400" valign="top" src="https://hydrogenpay.com/wp-content/uploads/2023/05/logo.png" data-canonical-src="https://hydrogenpay.com/wp-content/uploads/2023/05/logo.png" style="max-width:100%; ">
+<img width="400" valign="top" src="https://hydrogenshared.blob.core.windows.net/shared/hydrogen-logo.png" data-canonical-src="https://hydrogenshared.blob.core.windows.net/shared/hydrogen-logo.png" style="max-width:100%; ">
 </p>
 <br/>
 
@@ -51,6 +51,10 @@ You should already have your api key, If not, go to [Profile & Settings](https:/
 		isRecurring={false}
 		endDate="2025-10-02"
 		buttonText="Pay With Hydrogen"
+		transactionRef={`TRX-${Math.random().toString(36).substr(2, 9)}`}
+		metaData={[
+			// { fieldName: "uniqueId", fieldDefaultValue: "DevStore14", fieldKey: "uniqueId", fieldType: 1 },
+		]}
 		onSuccess={(response, closeModal) => {
 			console.log(response);
 
@@ -93,3 +97,5 @@ You should already have your api key, If not, go to [Profile & Settings](https:/
 | isRecurring  | `boolean`  | Optional | Recurring Payment                                                           |
 | frequency    | `String`   | Optional | Recurring Payment frequency                                                 |
 | endDate      | `String`   | Optional | Recurring Payment End Date. OPTIONAL but (REQUIRED when isRecurring = true) |
+| transactionRef      | `String`   | Optional | Custom Transaction reference |
+| metaData      | `Array`   | Optional | Transaction meta data |

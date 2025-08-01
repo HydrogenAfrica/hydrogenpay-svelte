@@ -15,6 +15,10 @@
 		isRecurring={false}
 		endDate="2025-10-02"
 		buttonText="Pay With Hydrogen"
+		transactionRef={`TRX-${Math.random().toString(36).substr(2, 9)}`}
+		metaData={[
+			// { fieldName: "uniqueId", fieldDefaultValue: "DevStore14", fieldKey: "uniqueId", fieldType: 1 },
+		]}
 		onSuccess={(response, closeModal) => {
 			console.log(response);
 
